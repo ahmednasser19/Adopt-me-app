@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom'
 
 class Details extends Component {
     //as the class is initialized run this constructor function
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = { loading: true };
-    }
-    //run once it's equla useEffect( ()=>{} , [])
+    //     this.state = { loading: true };
+    // }
+    state = { loading: true }
+    //run once it's equal to useEffect( ()=>{} , [])
     async componentDidMount() {
         const res = await fetch(
             `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
@@ -42,3 +43,4 @@ const WrappedDetails = () => {
     return <Details params={params} />
 }
 export default WrappedDetails;
+
