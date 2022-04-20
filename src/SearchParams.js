@@ -10,7 +10,7 @@ export default function SearchParams() {
     const [breed, setBreed] = useState("");
     const [pets, setPets] = useState([]);
     const [BREED] = useBreedList(animal);
-    const [theme] = useContext(ThemeContext);
+    const [theme, setTheme] = useContext(ThemeContext);
     useEffect(() => {
         requestPets();
     }, []);
@@ -73,6 +73,19 @@ export default function SearchParams() {
                             </option>
                         )
                         )}
+                    </select>
+                </label>
+                <label htmlFor="theme">
+                    Theme
+                    <select
+                        value={theme}
+                        onChange={(e) => setTheme(e.target.value)}
+                        onBlur={(e) => setTheme(e.target.value)}
+                    >
+                        <option value="peru">Peru</option>
+                        <option value="darkblue">Dark Blue</option>
+                        <option value="chartreuse">Chartreuse</option>
+                        <option value="mediumorchid">Medium Orchid</option>
                     </select>
                 </label>
                 <button style={{ backgroundColor: theme }}>Submit</button>
